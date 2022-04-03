@@ -1,0 +1,240 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Initial page load snapshot 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <div
+      class="resume"
+    >
+      <div
+        class="information"
+      >
+        <h1
+          class="name"
+        >
+          Simran Kaur
+        </h1>
+        <h2
+          class="title"
+        >
+          Fullstack developer
+        </h2>
+        <h3
+          class="contact"
+        >
+          Ithica, NY
+           | 
+          github.com/simran_kaur
+           | 
+          skaur@email.com
+           | 
+          555-555-555
+        </h3>
+      </div>
+      <div
+        class="skills"
+      >
+        <h2
+          class="section-title"
+        >
+          SKILLS
+        </h2>
+        <div
+          class="skill-group"
+        >
+          <h3
+            class="skill-title"
+          >
+            Languages
+          </h3>
+          <div
+            class="skill-list"
+          >
+            <p
+              class="skill-item"
+            >
+              JavaScript/Node.js
+            </p>
+            <p>
+              ·
+            </p>
+            <p
+              class="skill-item"
+            >
+              CSS3
+            </p>
+            <p>
+              ·
+            </p>
+            <p
+              class="skill-item"
+            >
+              HTML5
+            </p>
+            <p />
+          </div>
+        </div>
+        <div
+          class="skill-group"
+        >
+          <h3
+            class="skill-title"
+          >
+            Libraries
+          </h3>
+          <div
+            class="skill-list"
+          >
+            <p
+              class="skill-item"
+            >
+              React
+            </p>
+            <p>
+              ·
+            </p>
+            <p
+              class="skill-item"
+            >
+              D3
+            </p>
+            <p>
+              ·
+            </p>
+            <p
+              class="skill-item"
+            >
+              Express
+            </p>
+            <p />
+          </div>
+        </div>
+        <div
+          class="skill-group"
+        >
+          <h3
+            class="skill-title"
+          >
+            Other Tools
+          </h3>
+          <div
+            class="skill-list"
+          >
+            <p
+              class="skill-item"
+            >
+              Git
+            </p>
+            <p>
+              ·
+            </p>
+            <p
+              class="skill-item"
+            >
+              Jest
+            </p>
+            <p>
+              ·
+            </p>
+            <p
+              class="skill-item"
+            >
+              Cypress
+            </p>
+            <p />
+          </div>
+        </div>
+      </div>
+      <div
+        class="experience"
+      >
+        <h2
+          class="section-title"
+        >
+          EXPERIENCE
+        </h2>
+        <div
+          class="experience-group"
+        >
+          <h3>
+            Cornell Lab of Ornithology - eBird Project
+          </h3>
+          <h4>
+            Applications Programmer
+             | 
+            2020-present
+          </h4>
+          <ul>
+            <li>
+              Contributed to developing and maintaining the eBird web application database and API
+            </li>
+            <li>
+              Many other important tasks
+            </li>
+          </ul>
+        </div>
+        <div
+          class="experience-group"
+        >
+          <h3>
+            Cornell Lab of Ornithology Macaulay Library
+          </h3>
+          <h4>
+            Database Assistant
+             | 
+            2018-2020
+          </h4>
+          <ul>
+            <li>
+              Assisted with storage, categorization, and retrieval of bird sounds
+            </li>
+            <li>
+              Member of engineering team bringing SoundID to the Merlin Bird ID application
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="projects"
+      >
+        <h2
+          class="section-title"
+        >
+          PROJECTS
+        </h2>
+        <div
+          class="project-group"
+        >
+          <h3>
+            Mozilla - MDN Web Docs (Open Source Contributor)
+          </h3>
+          <h4>
+            Contributed sample code for lessons on mobile app development and React
+          </h4>
+        </div>
+      </div>
+      <div
+        class="education"
+      >
+        <h2
+          class="section-title"
+        >
+          EDUCATION
+        </h2>
+        <div
+          class="education-group"
+        >
+          <h3>
+            University of British Columbia
+          </h3>
+          <h4>
+            Bachelor of Science Honour Degree in Ecology
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

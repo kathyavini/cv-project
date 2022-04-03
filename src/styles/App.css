@@ -1,0 +1,60 @@
+body {
+  background-color: var(--dark2);
+  min-height: 100vh;
+}
+
+.container {
+  width: 100vw;
+  max-width: 1000px;
+  min-height: 100vh;
+  background-color: var(--black);
+}
+
+.resume {
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  padding: 3vw;
+}
+
+.name {
+  color: var(--accent3)
+}
+
+.title {
+  color: var(--accent4)
+}
+
+.section-title {
+  color: var(--accent1)
+} 
+
+.contact{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact {
+  margin-right: auto;
+}
+
+.skill-group {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-title {
+  margin-right: auto;
+}
+
+.skill-list {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 10px;
+  grid-column: 3 / 4;
+}
+
