@@ -1,3 +1,7 @@
+* {
+  /* border: 1px solid lightcoral; */
+}
+
 body {
   background-color: var(--dark2);
   min-height: 100vh;
@@ -58,3 +62,113 @@ body {
   grid-column: 3 / 4;
 }
 
+.information, .skills {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Interactivity */
+.edit-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 36px;
+  color: var(--white);
+  /* display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 30px;
+  margin-top: 30px; */
+}
+
+.gradient {
+  background-image: var(--icon-gradient);
+  background-color: var(--icon-fallback);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* .active {
+  outline: 3px solid var(--accent6);
+  outline-offset: 5px 10px;
+  border-radius: 20px;
+  padding: 5px;
+} */
+
+/* input {
+  background-color: transparent;
+  color: var(--white);
+  font-size: 2rem;
+  font-family: var(--main-font);
+  border: none;
+  transition: outline 1s;
+  padding: 5px;
+  margin-inline: 5px;
+  border-radius: 2px;
+} */
+
+form {
+  outline: 1px solid var(--accent1);
+  padding: 10px;
+}
+
+button  {
+  width: 100px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-inline: 10px;
+  padding-inline: 12px;
+  padding-block: 6px;
+  border-radius: 5px;
+  min-width: max-content;
+  color: var(--black);
+  background-image: var(--icon-gradient);
+  background-color: var(--icon-fallback);
+  border: none;
+  outline: none;
+  transition: filter 250ms;
+  display: block;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+button:hover {
+  outline: 2px solid var(--light4);
+}
+
+button:active {
+  filter: brightness(2);
+}
+
+input {
+  width: 100%;
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--main-font);
+  border: none;
+  outline: none;
+  transition: outline 500ms;
+  padding: 5px;
+  margin-inline: 5px;
+  border-radius: 2px;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: 1px solid var(--accent);
+  transition: outline 500ms;
+}
+
+.reset {
+  margin-top: 4rem;
+  padding-block: 15px;
+  padding-inline: 30px;
+  width: max-content;
+  border: 2px solid var(--accent5);
+  color: var(--accent5);
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 1rem;
+}

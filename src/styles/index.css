@@ -24,6 +24,13 @@
 
   --main-font: 'IBM Plex Mono', monospace;
   --secondary-font: 'IBM Plex Serif', serif;
+
+  --icon-gradient: linear-gradient(
+    70deg,
+    var(--accent3) 0%,
+    var(--accent7) 100%
+  );
+  --icon-fallback: var(--accent7);
 }
 
 * {

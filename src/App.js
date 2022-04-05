@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/App.css';
 import initialData from './initialData';
+import Information from './components/Information';
 
-function Information(props) {
-  return (
-    <div className="information" onClick={props.handleChange}>
-      <h1 className="name">{props.name}</h1>
-      <h2 className="title">{props.title}</h2>
-      <h3 className="contact">
-        {props.location} | {props.github} | {props.email} | {props.phone}
-      </h3>
-    </div>
-  );
-}
 
 function Skills({ skills }) {
+  const [editing, setEditing] = useState(false);
+  const [activeMode, setActiveMode] = useState(false);
+
+  function handleMouseEnter(event) {
+    setActiveMode(true);
+  }
+
+  function handleMouseLeave(event) {
+    setActiveMode(false);
+  }
+
   return (
-    <div className="skills">
+    <div
+      className={`skills ${activeMode && 'active'}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <h2 className="section-title">SKILLS</h2>
       {skills.map((section, index) => (
         <div className="skill-group" key={index}>
@@ -87,35 +92,35 @@ function Education({ education }) {
 }
 
 function App() {
-  const [data, setData] = React.useState(
+  const [data, setData] = useState(
     () => JSON.parse(localStorage.getItem('savedData')) || initialData
   );
 
   React.useEffect(() => {
-    console.log('running local storage effect');
     localStorage.setItem('savedData', JSON.stringify(data));
   }, [data]);
 
-  // This is a little local storage functionality test
-  function dummyChange() {
-    const newInfoObj = { ...data.information };
-    newInfoObj.name = 'Hehe clicked!';
-    setData({ ...data, information: newInfoObj });
-  }
+  // // This is a little local storage functionality test
+  // function dummyChange() {
+  //   const newInformation = { ...data.information };
+  //   newInformation.name = 'Clicked!';
+  //   setData({ ...data, information: newInformation });
+  // }
 
   function resetData() {
-    setData(initialData)
+    setData(initialData);
   }
 
   return (
     <div className="container">
-      <div className="resume">
-        <h5 onClick={resetData}>Reset Data</h5>
-        <Information {...data.information} handleChange={dummyChange} />
+      <div className="resume">        
+      <h3 className="reset" onClick={resetData}>Reset Data</h3>
+        <Information information={data.information} setData={setData} data={data}/>
         <Skills skills={data.skills} />
         <Experience experience={data.experience} />
         <Projects projects={data.projects} />
         <Education education={data.education} />
+
       </div>
     </div>
   );
