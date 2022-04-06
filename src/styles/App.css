@@ -5,6 +5,7 @@
 body {
   background-color: var(--dark2);
   min-height: 100vh;
+  min-width: 100vw;
 }
 
 .container {
@@ -19,10 +20,12 @@ body {
   max-width: 800px;
   height: 100%;
   padding: 3vw;
+  padding-right: 5vw;
+  margin-inline: auto;
 }
 
 .name {
-  color: var(--accent3)
+  color: var(--accent7)
 }
 
 .title {
@@ -75,11 +78,12 @@ body {
   right: 20px;
   font-size: 36px;
   color: var(--white);
-  /* display: block;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: 30px;
-  margin-top: 30px; */
+}
+
+@media (hover:none) {
+  /* .edit-button {
+    display: none;
+  } */
 }
 
 .gradient {
@@ -110,15 +114,15 @@ body {
 } */
 
 form {
-  outline: 1px solid var(--accent1);
+  outline: 2px solid var(--accent1);
   padding: 10px;
+  border-radius: 3px;
 }
 
 button  {
   width: 100px;
   font-weight: bold;
   font-size: 1.2rem;
-  margin-inline: 10px;
   padding-inline: 12px;
   padding-block: 6px;
   border-radius: 5px;
@@ -131,7 +135,8 @@ button  {
   transition: filter 250ms;
   display: block;
   margin-left: auto;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
 button:hover {
@@ -143,17 +148,17 @@ button:active {
 }
 
 input {
-  width: 100%;
+  width: 95%;
   background-color: transparent;
   color: var(--text-color);
   font-family: var(--main-font);
   border: none;
   outline: none;
   transition: outline 500ms;
-  padding: 5px;
+  padding: 10px 15px;
   margin-inline: 5px;
-  border-radius: 2px;
-  font-size: 1rem;
+  border-radius: 3px;
+  font-size: 1.3rem;
 }
 
 input:focus {

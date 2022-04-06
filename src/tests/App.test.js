@@ -4,15 +4,16 @@ import userEvent from '@testing-library/user-event';
 import App from '../App';
 import initialData from '../initialData';
 
-// With local storage I'm not sure how useful snapshot could be
+// Should I mock local storage for the purpose of the snapshot?
 test('Initial page load snapshot', () => {
-  const { container } = render(<App />, { legacyRoot: true });
+  const { container, getByText } = render(<App />, { legacyRoot: true });
   expect(container).toMatchSnapshot();
 });
 
 // Some dummy tests below to remind myself how userEvent works
-test.skip('Clicking button adds input box text to list item', () => {
+test('Hover displays edit button', () => {
   render(<App />);
+
   const input = screen.getByRole('textbox');
   const submitBtn = screen.getByRole('button');
 
@@ -23,6 +24,7 @@ test.skip('Clicking button adds input box text to list item', () => {
   expect(firstItem.textContent).toMatch(/test task/i);
 });
 
+// Test the reset buttons
 test.skip('Clicking on delete icon deletes task', () => {
   render(<App />);
   const input = screen.getByRole('textbox');

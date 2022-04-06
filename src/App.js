@@ -1,44 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/App.css';
 import initialData from './initialData';
 import Information from './components/Information';
-
-
-function Skills({ skills }) {
-  const [editing, setEditing] = useState(false);
-  const [activeMode, setActiveMode] = useState(false);
-
-  function handleMouseEnter(event) {
-    setActiveMode(true);
-  }
-
-  function handleMouseLeave(event) {
-    setActiveMode(false);
-  }
-
-  return (
-    <div
-      className={`skills ${activeMode && 'active'}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <h2 className="section-title">SKILLS</h2>
-      {skills.map((section, index) => (
-        <div className="skill-group" key={index}>
-          <h3 className="skill-title">{section.title}</h3>
-          <div className="skill-list">
-            {section.body.map((item, itemIndex) => (
-              <React.Fragment key={itemIndex}>
-                <p className="skill-item">{item}</p>
-                <p>{itemIndex !== section.body.length - 1 && '·'}</p>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+import Skills from './components/Skills'
 
 function Experience({ experience }) {
   return (
@@ -113,13 +77,23 @@ function App() {
 
   return (
     <div className="container">
-      <div className="resume">        
-      <h3 className="reset" onClick={resetData}>Reset Data</h3>
-        <Information information={data.information} setData={setData} data={data}/>
-        <Skills skills={data.skills} />
-        <Experience experience={data.experience} />
-        <Projects projects={data.projects} />
-        <Education education={data.education} />
+      <div className="resume">
+      <h3 className="reset" onClick={resetData}>
+          Reset Data
+        </h3>
+        <Information
+          information={data.information}
+          setData={setData}
+          data={data}
+        />
+        <Skills skills={data.skills} setData={setData} data={data} />
+        <Experience
+          experience={data.experience}
+          setData={setData}
+          data={data}
+        />
+        <Projects projects={data.projects} setData={setData} data={data} />
+        <Education education={data.education} setData={setData} data={data} />
 
       </div>
     </div>

@@ -8,6 +8,11 @@ exports[`Initial page load snapshot 1`] = `
     <div
       class="resume"
     >
+      <h3
+        class="reset"
+      >
+        Reset Data
+      </h3>
       <div
         class="information"
       >

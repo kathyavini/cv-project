@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import InputField from './InputField'
 
 export default function Information({ information, data, setData }) {
   const [editing, setEditing] = useState(false);
   const [activeMode, setActiveMode] = useState(false);
   const [infoData, setInfoData] = useState(information);
 
-  useEffect(()=> {
-    setInfoData(information)
-  }, [data.information])
+  useEffect(() => {
+    setInfoData(information);
+  }, [data.information]);
 
   function handleMouseEnter(event) {
     setActiveMode(true);
@@ -23,7 +24,6 @@ export default function Information({ information, data, setData }) {
   }
 
   function endEdit(event) {
-    // event.preventDefault();
     setEditing(false);
     setActiveMode(false);
     setData({ ...data, information: { ...infoData } });
@@ -33,11 +33,12 @@ export default function Information({ information, data, setData }) {
     setInfoData({ ...infoData, [event.target.name]: event.target.value });
   }
 
+
   return (
     // We want an icon that will appear on mouseover (along with a border/outline)
     // The icon should have the toggleEdit onClick
     <div
-      className={`information ${activeMode && 'active'}`}
+      className={`information${activeMode ? ' active' : ''}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -49,55 +50,64 @@ export default function Information({ information, data, setData }) {
           edit
         </span>
       )}
-      {editing && (
+      {editing ? (
         <form>
-          <input
+          <InputField
+            legend="Name"
             placeholder="Full name"
             name="name"
+            handleChange={handleChange}
             value={infoData.name}
-            onChange={handleChange}
-          ></input>
-          <input
-            placeholder="Job Title"
+          />
+          <InputField
+            legend="Position/Title"
+            placeholder="Job TItle"
             name="title"
+            handleChange={handleChange}
             value={infoData.title}
-            onChange={handleChange}
-          ></input>
-          <input
-            placeholder="Location"
+          />
+          <InputField
+            legend="Location"
+            placeholder="Location (City)"
             name="location"
+            handleChange={handleChange}
             value={infoData.location}
-            onChange={handleChange}
-          ></input>
-          <input
-            placeholder="Github"
+          />
+
+          <InputField
+            legend="Github"
+            placeholder="Link to your github"
             name="github"
+            handleChange={handleChange}
             value={infoData.github}
-            onChange={handleChange}
-          ></input>
-          <input
-            placeholder="Email"
+          />
+
+          <InputField
+            legend="Email"
+            placeholder="Email Address"
             name="email"
+            handleChange={handleChange}
             value={infoData.email}
-            onChange={handleChange}
-          ></input>
-          <input
-            placeholder="phone"
+          />
+
+          <InputField
+            legend="Phone Number"
+            placeholder="Phone number"
             name="phone"
+            handleChange={handleChange}
             value={infoData.phone}
-            onChange={handleChange}
-          ></input>
+          />
           <button onClick={endEdit}>Submit</button>
         </form>
+      ) : (
+        <>
+          <h1 className="name">{information.name}</h1>
+          <h2 className="title">{information.title}</h2>
+          <h3 className="contact">
+            {information.location} | {information.github} | {information.email} | {information.phone}
+          </h3>
+        </>
       )}
-      <>
-        <h1 className="name">{information.name}</h1>
-        <h2 className="title">{information.title}</h2>
-        <h3 className="contact">
-          {information.location} | {information.github} | {information.email} |{' '}
-          {information.phone}
-        </h3>
-      </>
     </div>
   );
 }
