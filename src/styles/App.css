@@ -2,17 +2,12 @@
   /* border: 1px solid lightcoral; */
 }
 
-body {
-  background-color: var(--dark2);
-  min-height: 100vh;
-  min-width: 100vw;
-}
-
 .container {
   width: 100vw;
   max-width: 1000px;
   min-height: 100vh;
   background-color: var(--black);
+  overflow-x: hidden;
 }
 
 .resume {
@@ -24,6 +19,166 @@ body {
   margin-inline: auto;
 }
 
+.information, .skills {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.reset {
+  margin-top: 4rem;
+  padding-block: 15px;
+  padding-inline: 30px;
+  width: max-content;
+  border: 2px solid var(--accent5);
+  color: var(--accent5);
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+/* Interactivity */
+.edit-button {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  font-size: 36px;
+  color: var(--white);
+}
+
+.gradient { /* For icons */
+  background-image: var(--icon-gradient);
+  background-color: var(--icon-fallback);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+
+form {
+  outline: 2px solid var(--accent1);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+button  {
+  width: 100px;
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding-inline: 12px;
+  padding-block: 6px;
+  border-radius: 5px;
+  min-width: max-content;
+  color: var(--black);
+  background-image: var(--icon-gradient);
+  background-color: var(--icon-fallback);
+  border: none;
+  outline: none;
+  transition: filter 250ms;
+  display: block;
+  margin-left: auto;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-family: var(--secondary-font);
+}
+
+button:hover {
+  outline: 2px solid var(--light4);
+}
+
+button:active {
+  filter: brightness(2);
+}
+
+input {
+  width: 85%;
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--main-font);
+  border: none;
+  outline: none;
+  transition: outline 500ms;
+  padding: 10px 15px;
+  margin-inline: 5px;
+  border-radius: 3px;
+  font-size: 1.3rem;
+}
+
+input:focus {
+  outline: 1px solid var(--accent);
+  transition: outline 500ms;
+}
+
+/* .input-bar {
+} */
+
+/* input + span {
+  visibility: hidden;
+}
+
+input:focus + span {
+  visibility: initial;
+} */
+
+input + span {
+  color: var(--accent1);
+}
+
+input + span:active {
+  filter: brightness(1.3);
+}
+
+.add-item {
+  margin-right: auto;
+  margin-left: 10%;
+  background-color: transparent;
+  background-image: none;
+  color: var(--accent6);
+  border: 2px solid var(--accent6);
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  font-size: 1.2rem;
+}
+
+.add-item span {
+  margin-right: 5px;
+}
+
+.delete-section {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  background-image: none;
+  background-color: var(--accent6);
+}
+
+.delete-section span {
+  margin-right: 5px;
+}
+
+.add-section {
+  margin-right: auto;
+  margin-left: 0;
+  background-color: transparent;
+  background-image: none;
+  color: var(--accent1);
+  border: 2px solid var(--accent1);
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  font-size: 1.4rem;
+}
+
+.add-section span {
+  margin-right: 5px;
+}
+
+.component-buttons {
+  display: flex;
+}
+
+/* Information section */
 .name {
   color: var(--accent7)
 }
@@ -47,6 +202,7 @@ body {
   margin-right: auto;
 }
 
+/* Skills section */
 .skill-group {
   display: flex;
   flex-flow: row wrap;
@@ -59,121 +215,15 @@ body {
 }
 
 .skill-list {
+  padding-left: 5px;
   display: flex;
   flex-flow: row wrap;
   column-gap: 10px;
   grid-column: 3 / 4;
 }
 
-.information, .skills {
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-/* Interactivity */
-.edit-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 36px;
-  color: var(--white);
-}
-
 @media (hover:none) {
   /* .edit-button {
     display: none;
   } */
-}
-
-.gradient {
-  background-image: var(--icon-gradient);
-  background-color: var(--icon-fallback);
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-/* .active {
-  outline: 3px solid var(--accent6);
-  outline-offset: 5px 10px;
-  border-radius: 20px;
-  padding: 5px;
-} */
-
-/* input {
-  background-color: transparent;
-  color: var(--white);
-  font-size: 2rem;
-  font-family: var(--main-font);
-  border: none;
-  transition: outline 1s;
-  padding: 5px;
-  margin-inline: 5px;
-  border-radius: 2px;
-} */
-
-form {
-  outline: 2px solid var(--accent1);
-  padding: 10px;
-  border-radius: 3px;
-}
-
-button  {
-  width: 100px;
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding-inline: 12px;
-  padding-block: 6px;
-  border-radius: 5px;
-  min-width: max-content;
-  color: var(--black);
-  background-image: var(--icon-gradient);
-  background-color: var(--icon-fallback);
-  border: none;
-  outline: none;
-  transition: filter 250ms;
-  display: block;
-  margin-left: auto;
-  margin-top: 15px;
-  margin-bottom: 5px;
-}
-
-button:hover {
-  outline: 2px solid var(--light4);
-}
-
-button:active {
-  filter: brightness(2);
-}
-
-input {
-  width: 95%;
-  background-color: transparent;
-  color: var(--text-color);
-  font-family: var(--main-font);
-  border: none;
-  outline: none;
-  transition: outline 500ms;
-  padding: 10px 15px;
-  margin-inline: 5px;
-  border-radius: 3px;
-  font-size: 1.3rem;
-}
-
-input:focus {
-  outline: 1px solid var(--accent);
-  transition: outline 500ms;
-}
-
-.reset {
-  margin-top: 4rem;
-  padding-block: 15px;
-  padding-inline: 30px;
-  width: max-content;
-  border: 2px solid var(--accent5);
-  color: var(--accent5);
-  font-weight: bold;
-  border-radius: 5px;
-  font-size: 1rem;
 }

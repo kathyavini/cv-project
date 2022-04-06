@@ -25,16 +25,16 @@ export default function Skills({ skills, data, setData }) {
   function endEdit() {
     setEditing(false);
     setActiveMode(false);
-    // Yikes nesting state like this was a mistake
     setData({
       ...data,
-      skills: skillData.map((group) => ({...group}))
-      });
+      skills: skillData.map((group) => ({ ...group })),
+    });
+    document.querySelector('.skills').scrollIntoView()
   }
 
   function handleTitleChange(event) {
     const updatedSkills = skillData.map((group) => {
-      group = {...group};
+      group = { ...group }; // nested state, sigh
       if (group.title === event.target.name) {
         group.title = event.target.value;
       }
@@ -48,12 +48,66 @@ export default function Skills({ skills, data, setData }) {
     newList[event.target.name] = event.target.value;
 
     const updatedSkills = skillData.map((group) => {
-      group = {...group};
+      group = { ...group };
       if (group.title === skill.title) {
         group.body = newList;
       }
       return group;
     });
+    setSkillData(updatedSkills);
+  }
+
+  function handleDeleteListItem(event, skill, item) {
+    event.preventDefault();
+
+    const newList = [
+      ...skill.body.slice(0, item),
+      ...skill.body.slice(item + 1),
+    ];
+
+    const updatedSkills = skillData.map((group) => {
+      group = { ...group };
+      if (group.title === skill.title) {
+        group.body = newList;
+      }
+      return group;
+    });
+    setSkillData(updatedSkills);
+  }
+
+  function handleAddListItem(event, skill) {
+    event.preventDefault();
+
+    const newList = [...skill.body, 'New item'];
+
+    const updatedSkills = skillData.map((group) => {
+      group = { ...group };
+      if (group.title === skill.title) {
+        group.body = newList;
+      }
+      return group;
+    });
+    setSkillData(updatedSkills);
+  }
+
+  function handleDeleteSection(event, skill) {
+    event.preventDefault();
+    const updatedSkills = skillData.filter(
+      (group) => group.title !== skill.title
+    );
+    setSkillData(updatedSkills);
+  }
+
+  function handleAddSection(event) {
+    event.preventDefault();
+
+    // Watch this line; it might need more nested destructuring
+    const updatedSkills = [
+      ...skillData,
+      { title: 'New Section', body: ['New item'] },
+    ];
+    console.log(updatedSkills);
+
     setSkillData(updatedSkills);
   }
 
@@ -68,15 +122,37 @@ export default function Skills({ skills, data, setData }) {
       ></input>
       <label htmlFor={`${skill.title}Items`}>Items</label>
       {skill.body.map((item, itemIndex) => (
-        <input
-          name={itemIndex}
-          key={itemIndex}
-          value={item}
-          onChange={(event) => {
-            handleListChange(event, skill);
-          }}
-        ></input>
+        <div className="input-bar">
+          <input
+            name={itemIndex}
+            key={itemIndex}
+            value={item}
+            onChange={(event) => {
+              handleListChange(event, skill);
+            }}
+          ></input>
+          <span
+            onClick={(event) => handleDeleteListItem(event, skill, itemIndex)}
+            className="material-icons"
+          >
+            delete
+          </span>
+        </div>
       ))}
+      <button
+        onClick={(event) => handleAddListItem(event, skill)}
+        className="add-item"
+      >
+        <span className="material-icons">add</span>
+        Add skill item
+      </button>
+      <button
+        onClick={(event) => handleDeleteSection(event, skill)}
+        className="delete-section"
+      >
+        <span className="material-icons">delete</span>
+        Delete Section
+      </button>
     </fieldset>
   ));
 
@@ -94,26 +170,35 @@ export default function Skills({ skills, data, setData }) {
           edit
         </span>
       )}
-      {editing && (
+      {editing ? (
         <form>
           {skillForm}
-          <button onClick={endEdit}>Submit</button>
-        </form>
-      )}
-      <h2 className="section-title">SKILLS</h2>
-      {skills.map((section, index) => (
-        <div className="skill-group" key={index}>
-          <h3 className="skill-title">{section.title}</h3>
-          <div className="skill-list">
-            {section.body.map((item, itemIndex) => (
-              <React.Fragment key={itemIndex}>
-                <p className="skill-item">{item}</p>
-                <p>{itemIndex !== section.body.length - 1 && '·'}</p>
-              </React.Fragment>
-            ))}
+          <div className="component-buttons">
+            <button onClick={handleAddSection} className="add-section">
+              <span className="material-icons">add</span>
+              Add section
+            </button>
+            <button onClick={endEdit}>Submit</button>
           </div>
-        </div>
-      ))}
+        </form>
+      ) : (
+        <>
+          <h2 className="section-title">SKILLS</h2>
+          {skills.map((section, index) => (
+            <div className="skill-group" key={index}>
+              <h3 className="skill-title">{section.title}</h3>
+              <div className="skill-list">
+                {section.body.map((item, itemIndex) => (
+                  <React.Fragment key={itemIndex}>
+                    <p className="skill-item">{item}</p>
+                    <p>{itemIndex !== section.body.length - 1 && '·'}</p>
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 }

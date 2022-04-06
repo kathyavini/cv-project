@@ -12,7 +12,7 @@ test('Initial page load snapshot', () => {
 
 // Some dummy tests below to remind myself how userEvent works
 test('Hover displays edit button', () => {
-  render(<App />);
+  const { container, getByRole } = render(<App />);
 
   const input = screen.getByRole('textbox');
   const submitBtn = screen.getByRole('button');

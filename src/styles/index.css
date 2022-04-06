@@ -41,8 +41,8 @@
 }
 
 html {
-  min-width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
   overflow-x: hidden;
 }
 
@@ -54,13 +54,9 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  color: var(--accent);
-}
-
-body {
   font-family: var(--main-font);
   line-height: 2.5;
-  background-color: var(--black);
+  background-color: var(--dark2);
   color: var(--white);
 }
 

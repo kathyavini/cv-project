@@ -10,11 +10,11 @@ export default function Information({ information, data, setData }) {
     setInfoData(information);
   }, [data.information]);
 
-  function handleMouseEnter(event) {
+  function handleMouseEnter() {
     setActiveMode(true);
   }
 
-  function handleMouseLeave(event) {
+  function handleMouseLeave() {
     setActiveMode(false);
   }
 
@@ -23,10 +23,11 @@ export default function Information({ information, data, setData }) {
     setActiveMode(true);
   }
 
-  function endEdit(event) {
+  function endEdit() {
     setEditing(false);
     setActiveMode(false);
     setData({ ...data, information: { ...infoData } });
+    document.querySelector('.information').scrollIntoView();
   }
 
   function handleChange(event) {
@@ -35,8 +36,6 @@ export default function Information({ information, data, setData }) {
 
 
   return (
-    // We want an icon that will appear on mouseover (along with a border/outline)
-    // The icon should have the toggleEdit onClick
     <div
       className={`information${activeMode ? ' active' : ''}`}
       onMouseEnter={handleMouseEnter}
