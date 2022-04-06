@@ -11,8 +11,8 @@ function Experience({ experience }) {
       {experience.map((job) => {
         return (
           <div className="experience-group" key={job.title}>
-            <h3>{job.title}</h3>
-            <h4>
+            <h3 className="item-title">{job.title}</h3>
+            <h4 className="item-subtitle">
               {job.subtitle} | {job.dates}
             </h4>
             <ul key={`points${job.title}`}>
@@ -33,8 +33,8 @@ function Projects({ projects }) {
       <h2 className="section-title">PROJECTS</h2>
       {projects.map((project) => (
         <div className="project-group" key={project.title}>
-          <h3>{project.title}</h3>
-          <h4>{project.subtitle}</h4>
+          <h3 className="projects-main">{project.title}</h3>
+          <p>{project.subtitle}</p>
         </div>
       ))}
     </div>
@@ -47,8 +47,8 @@ function Education({ education }) {
       <h2 className="section-title">EDUCATION</h2>
       {education.map((school) => (
         <div className="education-group" key={school.title}>
-          <h3>{school.title}</h3>
-          <h4>{school.subtitle}</h4>
+          <h3 className="education-main">{school.title}</h3>
+          <p>{school.subtitle}</p>
         </div>
       ))}
     </div>

@@ -26,7 +26,8 @@
 }
 
 .reset {
-  margin-top: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   padding-block: 15px;
   padding-inline: 30px;
   width: max-content;
@@ -35,6 +36,22 @@
   font-weight: bold;
   border-radius: 5px;
   font-size: 1.1rem;
+}
+
+.item-title {
+  color: var(--accent3)
+}
+
+.item-subtitle {
+  color: var(--accent)
+}
+
+.projects-main {
+  color: var(--accent2)
+}
+
+.education-main {
+  color: var(--accent6)
 }
 
 /* Interactivity */
@@ -56,7 +73,7 @@
 
 
 form {
-  outline: 2px solid var(--accent1);
+  outline: 2px solid var(--accent7);
   padding: 10px;
   border-radius: 3px;
 }
@@ -109,17 +126,6 @@ input:focus {
   transition: outline 500ms;
 }
 
-/* .input-bar {
-} */
-
-/* input + span {
-  visibility: hidden;
-}
-
-input:focus + span {
-  visibility: initial;
-} */
-
 input + span {
   color: var(--accent1);
 }
@@ -150,7 +156,7 @@ input + span:active {
   align-items: center;
   font-size: 1.4rem;
   background-image: none;
-  background-color: var(--accent6);
+  background-color: var(--accent4);
 }
 
 .delete-section span {

@@ -29,7 +29,7 @@ export default function Skills({ skills, data, setData }) {
       ...data,
       skills: skillData.map((group) => ({ ...group })),
     });
-    document.querySelector('.skills').scrollIntoView()
+    document.querySelector('.skills').scrollIntoView();
   }
 
   function handleTitleChange(event) {
@@ -122,10 +122,9 @@ export default function Skills({ skills, data, setData }) {
       ></input>
       <label htmlFor={`${skill.title}Items`}>Items</label>
       {skill.body.map((item, itemIndex) => (
-        <div className="input-bar">
+        <div className="input-bar" key={itemIndex}>
           <input
             name={itemIndex}
-            key={itemIndex}
             value={item}
             onChange={(event) => {
               handleListChange(event, skill);
