@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import InputField from './InputField'
 
 export default function Information({ information, data, setData }) {
   const [editing, setEditing] = useState(false);
@@ -34,7 +33,6 @@ export default function Information({ information, data, setData }) {
     setInfoData({ ...infoData, [event.target.name]: event.target.value });
   }
 
-
   return (
     <div
       className={`information${activeMode ? ' active' : ''}`}
@@ -51,51 +49,60 @@ export default function Information({ information, data, setData }) {
       )}
       {editing ? (
         <form>
-          <InputField
-            legend="Name"
-            placeholder="Full name"
-            name="name"
-            handleChange={handleChange}
-            value={infoData.name}
-          />
-          <InputField
-            legend="Position/Title"
-            placeholder="Job TItle"
-            name="title"
-            handleChange={handleChange}
-            value={infoData.title}
-          />
-          <InputField
-            legend="Location"
-            placeholder="Location (City)"
-            name="location"
-            handleChange={handleChange}
-            value={infoData.location}
-          />
-
-          <InputField
-            legend="Github"
-            placeholder="Link to your github"
-            name="github"
-            handleChange={handleChange}
-            value={infoData.github}
-          />
-
-          <InputField
-            legend="Email"
-            placeholder="Email Address"
-            name="email"
-            handleChange={handleChange}
-            value={infoData.email}
-          />
-
-          <InputField
-            legend="Phone Number"
-            placeholder="Phone number"
-            name="phone"
-            handleChange={handleChange}
-            value={infoData.phone}
-          />
+          <fieldset>
+            <legend>Name</legend>
+            <input
+              placeholder="Full name"
+              name="name"
+              value={infoData.name}
+              onChange={handleChange}
+            ></input>
+          </fieldset>
+          <fieldset>
+            <legend>Position/Title</legend>
+            <input
+              placeholder="Job Title"
+              name="title"
+              value={infoData.title}
+              onChange={handleChange}
+            ></input>
+          </fieldset>
+          <fieldset>
+            <legend>Location</legend>
+            <input
+              placeholder="Location (City)"
+              name="location"
+              value={infoData.location}
+              onChange={handleChange}
+            ></input>
+          </fieldset>
+          <fieldset>
+            <legend>Github</legend>
+            <input
+              placeholder="Link to your Github"
+              name="github"
+              value={infoData.github}
+              onChange={handleChange}
+            ></input>
+          </fieldset>
+          <fieldset>
+            <legend>Email</legend>
+            <input
+              placeholder="Email Address"
+              name="email"
+              value={infoData.email}
+              onChange={handleChange}
+            ></input>
+          </fieldset>
+          <fieldset>
+            <legend>Phone Number</legend>
+            <input
+              placeholder="Phone Number"
+              name="phone"
+              value={infoData.phone}
+              onChange={handleChange}
+            ></input>
+          </fieldset>
           <button onClick={endEdit}>Submit</button>
         </form>
       ) : (
@@ -103,7 +110,8 @@ export default function Information({ information, data, setData }) {
           <h1 className="name">{information.name}</h1>
           <h2 className="title">{information.title}</h2>
           <h3 className="contact">
-            {information.location} | {information.github} | {information.email} | {information.phone}
+            {information.location} | {information.github} | {information.email}{' '}
+            | {information.phone}
           </h3>
         </>
       )}

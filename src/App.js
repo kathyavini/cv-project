@@ -64,13 +64,6 @@ function App() {
     localStorage.setItem('savedData', JSON.stringify(data));
   }, [data]);
 
-  // // This is a little local storage functionality test
-  // function dummyChange() {
-  //   const newInformation = { ...data.information };
-  //   newInformation.name = 'Clicked!';
-  //   setData({ ...data, information: newInformation });
-  // }
-
   function resetData() {
     setData(initialData);
   }
