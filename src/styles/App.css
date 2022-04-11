@@ -19,10 +19,11 @@
   margin-inline: auto;
 }
 
-.information, .skills {
+.information, .skills, .experience, .projects, .education {
   position: relative;
   margin: 0;
   padding: 0;
+  margin-top: 20px;
 }
 
 .reset {
@@ -52,6 +53,10 @@
 
 .education-main {
   color: var(--accent6)
+}
+
+.projects-main, .education-main {
+  margin-bottom: -5px;
 }
 
 /* Interactivity */
@@ -200,8 +205,8 @@ input + span:active {
 .contact{
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .contact {
@@ -226,6 +231,14 @@ input + span:active {
   flex-flow: row wrap;
   column-gap: 10px;
   grid-column: 3 / 4;
+}
+
+.list-label {
+  display: block;
+}
+
+p:last-child.separator-dot {
+  display: none;
 }
 
 @media (hover:none) {

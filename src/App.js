@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './styles/App.css';
 import initialData from './initialData';
 import Information from './components/Information';
-import Skills from './components/Skills'
+import Skills from './components/Skills';
+import Projects from './components/Projects';
+import Education from './components/Education';
+
 
 function Experience({ experience }) {
   return (
@@ -27,33 +30,6 @@ function Experience({ experience }) {
   );
 }
 
-function Projects({ projects }) {
-  return (
-    <div className="projects">
-      <h2 className="section-title">PROJECTS</h2>
-      {projects.map((project) => (
-        <div className="project-group" key={project.title}>
-          <h3 className="projects-main">{project.title}</h3>
-          <p>{project.subtitle}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function Education({ education }) {
-  return (
-    <div className="education">
-      <h2 className="section-title">EDUCATION</h2>
-      {education.map((school) => (
-        <div className="education-group" key={school.title}>
-          <h3 className="education-main">{school.title}</h3>
-          <p>{school.subtitle}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 function App() {
   const [data, setData] = useState(
@@ -71,9 +47,6 @@ function App() {
   return (
     <div className="container">
       <div className="resume">
-      <h3 className="reset" onClick={resetData}>
-          Reset Data
-        </h3>
         <Information
           information={data.information}
           setData={setData}
@@ -87,7 +60,9 @@ function App() {
         />
         <Projects projects={data.projects} setData={setData} data={data} />
         <Education education={data.education} setData={setData} data={data} />
-
+        <h3 className="reset" onClick={resetData}>
+          Reset Data
+        </h3>
       </div>
     </div>
   );

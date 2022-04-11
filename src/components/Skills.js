@@ -36,6 +36,7 @@ export default function Skills({ skills, data, setData }) {
     const updatedSkills = skillData.map((group) => {
       group = { ...group }; // nested state, sigh
       if (group.title === event.target.name) {
+        // this breaks on repeat group names
         group.title = event.target.value;
       }
       return group;
@@ -78,7 +79,7 @@ export default function Skills({ skills, data, setData }) {
   function handleAddListItem(event, skill) {
     event.preventDefault();
 
-    const newList = [...skill.body, 'New item'];
+    const newList = [...skill.body, ''];
 
     const updatedSkills = skillData.map((group) => {
       group = { ...group };
@@ -101,12 +102,10 @@ export default function Skills({ skills, data, setData }) {
   function handleAddSection(event) {
     event.preventDefault();
 
-    // Watch this line; it might need more nested destructuring
-    const updatedSkills = [
-      ...skillData,
-      { title: 'New Section', body: ['New item'] },
-    ];
-    console.log(updatedSkills);
+    // Watch this line; it might need more nested destructuring, like this:
+    // const updatedSkills = [...skillData.map(group => ({...group})), { title: '', body: [''] }];
+
+    const updatedSkills = [...skillData, { title: '', body: [''] }];
 
     setSkillData(updatedSkills);
   }
@@ -116,15 +115,19 @@ export default function Skills({ skills, data, setData }) {
       <legend>Skill</legend>
       <label htmlFor={skill.title}>Type</label>
       <input
+        id={skill.title}
         name={skill.title}
         value={skill.title}
+        placeholder="Section Title"
         onChange={handleTitleChange}
       ></input>
-      <label htmlFor={`${skill.title}Items`}>Items</label>
+      <label className="list-label">Items</label>
       {skill.body.map((item, itemIndex) => (
         <div className="input-bar" key={itemIndex}>
           <input
+            // id={`${skill.title}Items`}
             name={itemIndex}
+            placeholder="Skill Item"
             value={item}
             onChange={(event) => {
               handleListChange(event, skill);
@@ -187,12 +190,15 @@ export default function Skills({ skills, data, setData }) {
             <div className="skill-group" key={index}>
               <h3 className="skill-title">{section.title}</h3>
               <div className="skill-list">
-                {section.body.map((item, itemIndex) => (
-                  <React.Fragment key={itemIndex}>
-                    <p className="skill-item">{item}</p>
-                    <p>{itemIndex !== section.body.length - 1 && '·'}</p>
-                  </React.Fragment>
-                ))}
+                {section.body.map(
+                  (item, itemIndex) =>
+                    item !== '' && (
+                      <React.Fragment key={itemIndex}>
+                        <p className="skill-item">{item}</p>
+                        <p className="separator-dot">·</p>
+                      </React.Fragment>
+                    )
+                )}
               </div>
             </div>
           ))}
