@@ -32,10 +32,10 @@ export default function Education({ education, data, setData }) {
     document.querySelector('.education').scrollIntoView();
   }
 
-  function handleTitleChange(event) {
+  function handleTitleChange(event, school) {
     const updatedEducation = eduData.map((group) => {
       group = { ...group };
-      if (group.title === event.target.name) {
+      if (group.title === school.title && group.subtitle === school.subtitle) {
         group.title = event.target.value;
       }
       return group;
@@ -43,10 +43,10 @@ export default function Education({ education, data, setData }) {
     setEduData(updatedEducation);
   }
 
-  function handleSubtitleChange(event) {
+  function handleSubtitleChange(event, school) {
     const updatedEducation = eduData.map((group) => {
       group = { ...group };
-      if (group.subtitle === event.target.name) {
+      if (group.title === school.title && group.subtitle === school.subtitle) {
         group.subtitle = event.target.value;
       }
       return group;
@@ -79,7 +79,9 @@ export default function Education({ education, data, setData }) {
         value={school.title}
         name={school.title}
         placeholder="School Name"
-        onChange={handleTitleChange}
+        onChange={(event) => {
+          handleTitleChange(event, school);
+        }}
       ></input>
       <label htmlFor={school.subtitle}>Degree</label>
       <input
@@ -87,7 +89,9 @@ export default function Education({ education, data, setData }) {
         value={school.subtitle}
         name={school.subtitle}
         placeholder="Degree Name and Major"
-        onChange={handleSubtitleChange}
+        onChange={(event) => {
+          handleSubtitleChange(event, school);
+        }}
       ></input>
       <button
         onClick={(event) => handleDeleteSection(event, school)}

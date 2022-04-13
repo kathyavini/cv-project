@@ -5,31 +5,7 @@ import Information from './components/Information';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Education from './components/Education';
-
-
-function Experience({ experience }) {
-  return (
-    <div className="experience">
-      <h2 className="section-title">EXPERIENCE</h2>
-      {experience.map((job) => {
-        return (
-          <div className="experience-group" key={job.title}>
-            <h3 className="item-title">{job.title}</h3>
-            <h4 className="item-subtitle">
-              {job.subtitle} | {job.dates}
-            </h4>
-            <ul key={`points${job.title}`}>
-              {job.body.map((task, index) => (
-                <li key={index}>{task}</li>
-              ))}
-            </ul>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
+import Experience from './components/Experience';
 
 function App() {
   const [data, setData] = useState(
